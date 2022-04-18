@@ -53,14 +53,14 @@ bool Image::load(std::string fileName) {
 	}
 }
 
-Pixel Image::getPixel(unsigned int col, unsigned int row) {
-	return pixels[row][col];
+Pixel Image::getPixel(int col, int row) {
+	return pixels[col][row];
 }
 
-unsigned int Image::getWidth() {
-	return pixels.size() > 0 ? (unsigned int)pixels[0].size() : 0;
+int Image::getWidth() {
+	return (int)pixels.size();
 }
 
-unsigned int Image::getHeight() {
-	return (unsigned int)pixels.size();
+int Image::getHeight() {
+	return pixels.size() > 0 ? (int)pixels[0].size() : 0;
 }
