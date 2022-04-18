@@ -20,9 +20,9 @@ public:
 
 	bool load(std::string fileName);
 
-	Pixel getPixel(int col, int row);
+	Pixel getPixel(unsigned int col, unsigned int row);
 
-	int getWidth();
+	unsigned int getWidth();
 
-	int getHeight();
+	unsigned int getHeight();
 };
