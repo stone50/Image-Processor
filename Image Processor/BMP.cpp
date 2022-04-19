@@ -328,7 +328,7 @@ bool loadBMP(const vector<unsigned char>& fileContents, vector<vector<Pixel>>& p
 					(unsigned char)((currentPixelVal & blueMask) >> blueShift),
 					(unsigned char)((currentPixelVal & greenMask) >> greenShift),
 					(unsigned char)((currentPixelVal & redMask) >> redShift),
-					(unsigned char)((currentPixelVal & alphaMask) >> alphaShift),
+					(unsigned char)((currentPixelVal & alphaMask) >> alphaShift)
 				});
 			}
 			offset += padding;
@@ -363,7 +363,7 @@ bool loadBMP(const vector<unsigned char>& fileContents, vector<vector<Pixel>>& p
 					(unsigned char)((currentPixelVal & blueMask) >> blueShift),
 					(unsigned char)((currentPixelVal & greenMask) >> greenShift),
 					(unsigned char)((currentPixelVal & redMask) >> redShift),
-					(unsigned char)((currentPixelVal & alphaMask) >> alphaShift),
+					(unsigned char)((currentPixelVal & alphaMask) >> alphaShift)
 				});
 			}
 			offset += padding;
