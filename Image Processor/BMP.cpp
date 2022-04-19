@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool loadBMP(const std::vector<unsigned char>& fileContents, std::vector<std::vector<Pixel>>& pixels) {
+bool loadBMP(const vector<unsigned char>& fileContents, vector<vector<Pixel>>& pixels) {
 	unsigned int offset = 2;
 
 	auto twoBytesToInt = [&]() -> unsigned short int {

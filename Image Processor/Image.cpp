@@ -8,11 +8,11 @@ using namespace std;
 Image::Image() :
 	frames(vector<Frame>())
 {}
-Image::Image(std::string fileName) {
+Image::Image(string fileName) {
 	load(fileName);
 }
 
-bool Image::load(std::string fileName) {
+bool Image::load(string fileName) {
 	frames = vector<Frame>();
 	try {
 		// load file into string fileContents
