@@ -24,6 +24,8 @@ public:
 
 	bool load(std::string fileName);
 
+	unsigned char getFrameCount();
+
 	Pixel getPixel(unsigned char frameIndex, unsigned int col, unsigned int row);
 
 	unsigned int getWidth();

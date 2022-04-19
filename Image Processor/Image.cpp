@@ -56,6 +56,10 @@ bool Image::load(string fileName) {
 	}
 }
 
+unsigned char Image::getFrameCount() {
+	return (unsigned char)frames.size();
+}
+
 Pixel Image::getPixel(unsigned char frameIndex,  unsigned int col, unsigned int row) {
 	return frames.size() == 0 ? Pixel{} : frames[frameIndex].pixels[row][col];
 }
