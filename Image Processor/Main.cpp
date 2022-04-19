@@ -17,7 +17,7 @@ int main() {
     //Draw pixels
     for (unsigned int row = 0; row < img.getHeight(); row++) {
         for (unsigned int col = 0; col < img.getWidth(); col++) {
-            SetPixel(mydc, col, row, RGB(img.getPixel(col, row).red, img.getPixel(col, row).green, img.getPixel(col, row).blue));
+            SetPixel(mydc, col, row, RGB(img.getPixel(0, col, row).red, img.getPixel(0, col, row).green, img.getPixel(0, col, row).blue));
         }
     }
 

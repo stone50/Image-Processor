@@ -6,13 +6,14 @@
 using namespace std;
 
 Image::Image() :
-	pixels(std::vector<std::vector<Pixel>>())
+	frames(vector<Frame>())
 {}
 Image::Image(std::string fileName) {
 	load(fileName);
 }
 
 bool Image::load(std::string fileName) {
+	frames = vector<Frame>();
 	try {
 		// load file into string fileContents
 		ifstream imageFile(fileName, ifstream::binary);
@@ -33,7 +34,8 @@ bool Image::load(std::string fileName) {
 			(fileContents[0] == 'I' && fileContents[1] == 'C') ||
 			(fileContents[0] == 'P' && fileContents[1] == 'T') 
 			) {
-			return loadBMP(fileContents, pixels);
+			frames.push_back(Frame{});
+			return loadBMP(fileContents, frames[0].pixels);
 		}
 
 		// check for another file format
@@ -49,18 +51,19 @@ bool Image::load(std::string fileName) {
 		return true;
 	}
 	catch (exception& e) {
+		throw e;
 		return false;
 	}
 }
 
-Pixel Image::getPixel(unsigned int col, unsigned int row) {
-	return pixels[row][col];
+Pixel Image::getPixel(unsigned char frameIndex,  unsigned int col, unsigned int row) {
+	return frames.size() == 0 ? Pixel{} : frames[frameIndex].pixels[row][col];
 }
 
 unsigned int Image::getWidth() {
-	return pixels.size() > 0 ? (unsigned int)pixels[0].size() : 0;
+	return frames.size() == 0 ? 0 : (unsigned int)frames[0].pixels[0].size();
 }
 
 unsigned int Image::getHeight() {
-	return (unsigned int)pixels.size();
+	return frames.size() == 0 ? 0 : (unsigned int)frames[0].pixels.size();
 }
